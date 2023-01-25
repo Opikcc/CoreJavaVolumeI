@@ -3,10 +3,10 @@ package chapter4;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
   private final String name;
   private  double salary;
-  private LocalDate hireDay;
+  private final LocalDate hireDay;
 
   public Employee(String name, double salary, LocalDate hireDay) {
     Objects.requireNonNullElse(name, "Unknown");
@@ -35,5 +35,10 @@ public class Employee {
             ", salary=" + salary +
             ", hireDay=" + hireDay +
             '}';
+  }
+  
+  @Override
+  public int compareTo(Employee other) {
+      return Double.compare(this.salary, other.salary);
   }
 }
