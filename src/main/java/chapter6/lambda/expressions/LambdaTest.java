@@ -1,8 +1,15 @@
 package chapter6.lambda.expressions;
 
+import chapter4.Employee;
+import java.util.ArrayList;
 import javax.swing.*;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
+import java.util.function.BiFunction;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * This program demonstrates the use of lambda expressions.
@@ -27,5 +34,17 @@ public class LambdaTest {
     JOptionPane.showMessageDialog(null, "Quit Programs?");
     timer.stop();
 //    System.exit(0);
+
+    // Create BiFunction Sample
+    BiFunction<String, String, Integer> comp = (a, b) -> (a.length() - b.length());
+    
+    Integer x = comp.apply("First", "Second");
+    System.out.println("X : " + x);
+    
+    Predicate<String> planetCheck = e -> (e.equals("Earth"));
+    Stream<String> result = Arrays.stream(planets).filter(planetCheck);
+    List<String> resultString = result.collect(Collectors.toList());
+    System.out.println("result String : " + resultString);
+    System.out.println("Predicate : " + Arrays.stream(planets).filter(planetCheck));
   }
 }
