@@ -1,7 +1,5 @@
 package chapter6.lambda.expressions;
 
-import chapter4.Employee;
-import java.util.ArrayList;
 import javax.swing.*;
 import java.util.Arrays;
 import java.util.Date;
