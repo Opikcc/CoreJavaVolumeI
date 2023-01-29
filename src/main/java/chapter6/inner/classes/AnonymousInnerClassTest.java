@@ -14,7 +14,7 @@ import javax.swing.Timer;
  */
 public class AnonymousInnerClassTest {
   public static void main(String[] args) {
-    var clock = new TalkingClock();
+    var clock = new TalkingClockAnonymous();
     clock.start(1000, true);
     
     // Keep program running until the user selects "OK"
@@ -26,7 +26,7 @@ public class AnonymousInnerClassTest {
 /**
  * A clock that prints the time in regular intervals.
  */
-class TalkingClock {  
+class TalkingClockAnonymous {  
   /**
    * Starts the clock
    * @param interval the interval between messages (in milisec)
