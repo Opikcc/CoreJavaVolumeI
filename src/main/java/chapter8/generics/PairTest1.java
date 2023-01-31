@@ -21,6 +21,17 @@ public class PairTest1 {
 
     // Get Minimum
     System.out.println("Minimum = " + ArrayAlg.min(numbers));
+    
+//    if (mm instanceof Pair<String>) {
+    if (mm instanceof Pair) {
+      System.out.println("mm instance of Pair Class");
+    }
+    
+    Pair<Double> dd = new Pair<>(1.23, 1.22);
+    
+    if (mm.getClass() == dd.getClass()) {
+      System.out.println("mm and dd equals even the type parameter difference");
+    }
   }
 }
 
