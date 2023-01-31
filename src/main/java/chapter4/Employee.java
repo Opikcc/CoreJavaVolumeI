@@ -7,7 +7,6 @@ public class Employee implements Comparable<Employee> {
   private final String name;
   private  double salary;
   private final LocalDate hireDay;
-  private final Comparable comparable;
 
   public Employee(String name, double salary, LocalDate hireDay) {
     Objects.requireNonNullElse(name, "Unknown");
@@ -15,7 +14,6 @@ public class Employee implements Comparable<Employee> {
     this.name = Objects.requireNonNullElse(name, "Unknown");
     this.salary = salary;
     this.hireDay = hireDay;
-    comparable = new Employee("Asep", 1250, LocalDate.of(2000, 10, 10));
   }
 
   public String getName() {
