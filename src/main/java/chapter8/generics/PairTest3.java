@@ -14,6 +14,16 @@ public class PairTest3 {
     var ceo = new Manager("Gus Greedy", 800000, LocalDate.of(2003, 12, 15));
     var cfo = new Manager("Sid Sneaky", 600000, LocalDate.of(2003, 12, 15));
     var buddies = new Pair<Manager>(ceo, cfo);
+    
+    var lowlyEmployee = new Employee("Asep", 800000, LocalDate.of(2003, 12, 15));
+    Pair<? extends Employee> wildcardbuddies = buddies; // -- OK
+    Employee x = wildcardbuddies.getFirst();
+//    Manager x = wildcardbuddies.getFirst();
+//    wildcardbuddies.setFirst(lowlyEmployee);  Compile-time Error
+    Pair<? super Manager> superManager = buddies;
+    Manager y = cfo;
+    superManager.setFirst(y);
+    Object z = superManager.getFirst();
 
     printBuddies(buddies);
 
