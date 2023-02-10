@@ -65,9 +65,11 @@ public class CallableTest {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
       }
     };
+
+    BigInteger x = callable.call();
     
     System.out.printf("futureResult : %,d \n", future.get());
-    System.out.printf("callableResult : %,d \n", callable.call());
+    System.out.printf("callableResult : %,d \n", x);
     
     var futureTask = new FutureTask<BigInteger>(callable);
     var t = new Thread(futureTask); // It's a Runnable

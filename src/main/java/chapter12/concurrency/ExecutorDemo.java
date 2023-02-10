@@ -85,13 +85,17 @@ public class ExecutorDemo {
       
       Set<Path> files = descendants(Path.of(start));
       var tasks = new ArrayList<Callable<Long>>();
-      
+
+      int counter = 1;
       for (Path file : files) {
+        counter++;
         Callable<Long> task = () -> occurence(word, file);
         tasks.add(task);
       }
-      
-      ExecutorService executor = Executors.newCachedThreadPool();
+      System.out.println("Number of task : " + counter);
+
+//      Runtime.getRuntime().availableProcessors();
+      ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
       // Use a single thread executor instead to see if multithreading
       // speed up the search
       // ExecutorService executor = Executors.newSingleThreadPool();
